@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFrameworks>netstandard2.1;net462;net472;net48</TargetFrameworks>
-    <PackageId>Digitalroot.Valheim.Common.JsonSerializationProvider</PackageId>
+    <PackageId>Digitalroot.Valheim.Common.Json</PackageId>
     <RootNamespace>Digitalroot.Valheim.Common</RootNamespace>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
@@ -16,7 +16,7 @@
     <PackageTags>valheim, digitalroot, json</PackageTags>
     <Authors>Digitalroot</Authors>
     <Company>Digitalroot Technologies</Company>
-    <Product>Digitalroot Valheim VersionCheck</Product>
+    <Product>Digitalroot Valheim Json Serialization Provider</Product>
     <Description>Json Serialization Provider for Valheim</Description>
     <PackageReleaseNotes>Initial Release</PackageReleaseNotes>
     <NeutralLanguage>en-US</NeutralLanguage>
