@@ -8,8 +8,8 @@
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <PackageLicenseExpression>AGPL-3.0-or-later</PackageLicenseExpression>
     <Copyright>Copyright © Digitalroot Technologies 2021</Copyright>
-    <PackageProjectUrl>https://github.com/Digitalroot-Valheim/Digitalroot.Valheim.Common.JsonSerializationProvider</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/Digitalroot-Valheim/Digitalroot.Valheim.Common.JsonSerializationProvider</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/Digitalroot-Valheim/Digitalroot.Valheim.Common.Json</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Digitalroot-Valheim/Digitalroot.Valheim.Common.Json</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageIcon>ValheimRcon_black.png</PackageIcon>
     <PackageIconUrl />
@@ -18,12 +18,12 @@
     <Company>Digitalroot Technologies</Company>
     <Product>Digitalroot Valheim Json Serialization Provider</Product>
     <Description>Json Serialization Provider for Valheim</Description>
-    <PackageReleaseNotes>Initial Release</PackageReleaseNotes>
+    <PackageReleaseNotes>Renamed to JSON</PackageReleaseNotes>
     <NeutralLanguage>en-US</NeutralLanguage>
-    <PackageVersion>1.0.0</PackageVersion>
-    <AssemblyVersion>1.0.0</AssemblyVersion>
-    <FileVersion>1.0.0</FileVersion>
-    <Version>1.0.0</Version>
+    <PackageVersion>1.0.1</PackageVersion>
+    <AssemblyVersion>1.0.1</AssemblyVersion>
+    <FileVersion>1.0.1</FileVersion>
+    <Version>1.0.1</Version>
   </PropertyGroup>
 
   <ItemGroup>
