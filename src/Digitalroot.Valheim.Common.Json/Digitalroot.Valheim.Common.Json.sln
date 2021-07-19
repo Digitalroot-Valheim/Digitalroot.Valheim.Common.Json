@@ -5,6 +5,16 @@ VisualStudioVersion = 16.0.31424.327
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Digitalroot.Valheim.Common.Json", "Digitalroot.Valheim.Common.Json.csproj", "{1594D4CD-4E3A-4634-9A6E-148A63856064}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{25D56ABC-DDC8-45D8-80A1-CCDACF8D3A26}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\.gitignore = ..\..\.gitignore
+		..\..\LICENSE = ..\..\LICENSE
+		..\..\.github\workflows\publish.yml = ..\..\.github\workflows\publish.yml
+		..\..\README.md = ..\..\README.md
+		..\ico\ValheimRcon_black.ico = ..\ico\ValheimRcon_black.ico
+		..\ico\ValheimRcon_black.png = ..\ico\ValheimRcon_black.png
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
