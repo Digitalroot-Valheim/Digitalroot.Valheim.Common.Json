@@ -1,0 +1,2 @@
+# Digitalroot.Valheim.Common.JsonSerializationProvider
+Valheim JsonSerializationProvider
