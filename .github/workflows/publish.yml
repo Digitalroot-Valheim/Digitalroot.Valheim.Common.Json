@@ -32,4 +32,4 @@ jobs:
       - name: Create the package
         run: dotnet pack --configuration Release src/Digitalroot.Valheim.Common.Json/Digitalroot.Valheim.Common.Json.csproj
       - name: Publish the package to GPR
-        run: dotnet nuget push src/Digitalroot.Valheim.Common.Json/bin/Release/*.nupkg
+        run: dotnet nuget push src/Digitalroot.Valheim.Common.Json/bin/Release/*.nupkg --skip-duplicate
