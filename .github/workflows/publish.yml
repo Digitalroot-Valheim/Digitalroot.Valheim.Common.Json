@@ -1,54 +1,35 @@
-name: publish to nuget
+name: dotnet package
 on:
   push:
     branches:
       - main # Default release branch
 jobs:
-  publish:
-    name: build, pack & publish
+  deploy:
     runs-on: ubuntu-latest
+    permissions:
+      packages: write
+      contents: read
     steps:
       - uses: actions/checkout@v2
-
-      # - name: Setup dotnet
-      #   uses: actions/setup-dotnet@v1
-      #   with:
-      #     dotnet-version: 3.1.200
-
-      # Publish
-      - name: publish on version change
-        id: publish_nuget
-        uses: Rebel028/publish-nuget@v2.6.3
+      - uses: actions/setup-dotnet@v1.8.1
         with:
-          # Filepath of the project to be packaged, relative to root of repository
-          PROJECT_FILE_PATH: src\Digitalroot.Valheim.Common.Json\Digitalroot.Valheim.Common.Json.csproj
-          
-          # NuGet package id, used for version detection & defaults to project name
-          # PACKAGE_NAME: Core
-          
-          # Filepath with version info, relative to root of repository & defaults to PROJECT_FILE_PATH
-          # VERSION_FILE_PATH: Directory.Build.props
-
-          # Regex pattern to extract version info in a capturing group
-          # VERSION_REGEX: ^\s*<Version>(.*)<\/Version>\s*$
-          
-          # Useful with external providers like Nerdbank.GitVersioning, ignores VERSION_FILE_PATH & VERSION_REGEX
-          # VERSION_STATIC: 1.0.0
-
-          # Flag to toggle git tagging, enabled by default
-          # TAG_COMMIT: true
-
-          # Format of the git tag, [*] gets replaced with actual version
-          # TAG_FORMAT: v*
-
-          # API key to authenticate with NuGet server, or a token, issued for GITHUB_USER if you use GPR
-          NUGET_KEY: ${{secrets.NUGET_PAT}}
-
-          # NuGet server uri hosting the packages, defaults to https://api.nuget.org
-          NUGET_SOURCE: https://nuget.pkg.github.com/Digitalroot-Valheim
-
-          # Flag to toggle pushing symbols along with nuget package to the server, disabled by default
-          # INCLUDE_SYMBOLS: false
-          
-          # Flag to throw an error when trying to publish an existing version of a package
-          # THOW_ERROR_IF_VERSION_EXISTS: false
+          #dotnet-version: '3.1.x' # SDK Version to use.
+          source-url: https://nuget.pkg.github.com/Digitalroot-Valheim/index.json
+        env:
+          NUGET_AUTH_TOKEN: ${{secrets.NUGET_PAT}}
+      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+      - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
+      - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
+      - name: Check out repository code
+        uses: actions/checkout@v2
+      - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
+      - run: echo "🖥️ The workflow is now ready to test your code on the runner."
+      - name: List files in the repository
+        run: |
+          ls ${{ github.workspace }}
+      - run: echo "🍏 This job's status is ${{ job.status }}."
+      - run: dotnet build --configuration Release src/Digitalroot.Valheim.Common.Json/Digitalroot.Valheim.Common.Json.csproj
+      - name: Create the package
+        run: dotnet pack --configuration Release src/Digitalroot.Valheim.Common.Json/Digitalroot.Valheim.Common.Json.csproj
+      - name: Publish the package to GPR
+        run: dotnet nuget push src/Digitalroot.Valheim.Common.Json/bin/Release/*.nupkg
