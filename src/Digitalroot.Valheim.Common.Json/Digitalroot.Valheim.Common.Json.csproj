@@ -1,9 +1,10 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
+    <AssemblyName>Digitalroot.Valheim.Common.Json</AssemblyName>
     <TargetFrameworks>netstandard2.1;net462;net472;net48</TargetFrameworks>
     <PackageId>Digitalroot.Valheim.Common.Json</PackageId>
-    <RootNamespace>Digitalroot.Valheim.Common</RootNamespace>
+    <RootNamespace>Digitalroot.Valheim.Common.Json</RootNamespace>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <PackageLicenseExpression>AGPL-3.0-or-later</PackageLicenseExpression>
@@ -20,10 +21,10 @@
     <Description>Json Serialization Provider for Valheim</Description>
     <PackageReleaseNotes>Renamed to JSON</PackageReleaseNotes>
     <NeutralLanguage>en-US</NeutralLanguage>
-    <PackageVersion>1.0.1</PackageVersion>
-    <AssemblyVersion>1.0.1</AssemblyVersion>
-    <FileVersion>1.0.1</FileVersion>
-    <Version>1.0.1</Version>
+    <PackageVersion>1.0.2</PackageVersion>
+    <AssemblyVersion>1.0.2</AssemblyVersion>
+    <FileVersion>1.0.2</FileVersion>
+    <Version>1.0.2</Version>
   </PropertyGroup>
 
   <ItemGroup>
