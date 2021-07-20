@@ -1,9 +1,10 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
+    <AssemblyName>Digitalroot.Valheim.Common.Json</AssemblyName>
     <TargetFrameworks>netstandard2.1;net462;net472;net48</TargetFrameworks>
     <PackageId>Digitalroot.Valheim.Common.Json</PackageId>
-    <RootNamespace>Digitalroot.Valheim.Common</RootNamespace>
+    <RootNamespace>Digitalroot.Valheim.Common.Json</RootNamespace>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <PackageLicenseExpression>AGPL-3.0-or-later</PackageLicenseExpression>
