@@ -4,6 +4,9 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
 	  <LangVersion>9</LangVersion>
     <IsPackable>false</IsPackable>
+	  <RestoreAdditionalProjectSources>
+		  https://nuget.bepinex.dev/v3/index.json
+	  </RestoreAdditionalProjectSources>
   </PropertyGroup>
 
   <ItemGroup>

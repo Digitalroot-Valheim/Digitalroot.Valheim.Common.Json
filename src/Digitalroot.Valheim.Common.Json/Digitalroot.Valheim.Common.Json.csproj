@@ -21,13 +21,12 @@
 		<PackageReleaseNotes>Update to current packages</PackageReleaseNotes>
 		<LangVersion>9</LangVersion>
 		<NeutralLanguage>en-US</NeutralLanguage>
-		<PackageVersion>1.0.2</PackageVersion>
-		<AssemblyVersion>1.0.2</AssemblyVersion>
-		<FileVersion>1.0.2</FileVersion>
+		<PackageVersion>1.0.3</PackageVersion>
+		<AssemblyVersion>1.0.3</AssemblyVersion>
+		<FileVersion>1.0.3</FileVersion>
 		<RestoreAdditionalProjectSources>
 			https://nuget.bepinex.dev/v3/index.json
 		</RestoreAdditionalProjectSources>
-		<RunAnalyzersDuringBuild>false</RunAnalyzersDuringBuild>
 	</PropertyGroup>
 
 	<ItemGroup>
