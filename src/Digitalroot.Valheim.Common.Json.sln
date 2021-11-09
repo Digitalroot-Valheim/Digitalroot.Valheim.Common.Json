@@ -6,14 +6,31 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{25D56ABC-DDC8-45D8-80A1-CCDACF8D3A26}"
 	ProjectSection(SolutionItems) = preProject
 		..\.gitignore = ..\.gitignore
-		..\LICENSE = ..\LICENSE
-		..\.github\workflows\publish.yml = ..\.github\workflows\publish.yml
-		..\README.md = ..\README.md
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Digitalroot.Valheim.Common.Json", "Digitalroot.Valheim.Common.Json\Digitalroot.Valheim.Common.Json.csproj", "{AB45923D-C351-49B7-B2D3-1C6DAAD2A16D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ico", "ico", "{95B7FB7C-FD5D-4A2D-9BC8-AC01B0281895}"
+	ProjectSection(SolutionItems) = preProject
 		ico\ValheimRcon_black.ico = ico\ValheimRcon_black.ico
 		ico\ValheimRcon_black.png = ico\ValheimRcon_black.png
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Digitalroot.Valheim.Common.Json", "Digitalroot.Valheim.Common.Json\Digitalroot.Valheim.Common.Json.csproj", "{AB45923D-C351-49B7-B2D3-1C6DAAD2A16D}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{89EA94AA-87B2-4BFE-B265-027590D9CBAD}"
+	ProjectSection(SolutionItems) = preProject
+		..\docs\LICENSE = ..\docs\LICENSE
+		..\docs\README.md = ..\docs\README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{0DAF05ED-B510-4C0A-B214-0CBBC63E264A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{27D8DF62-68ED-48F7-BA5C-B7145CCBCB2F}"
+	ProjectSection(SolutionItems) = preProject
+		..\.github\workflows\ci.yml = ..\.github\workflows\ci.yml
+		..\.github\workflows\publish.yml = ..\.github\workflows\publish.yml
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTests", "UnitTests\UnitTests.csproj", "{9EDB36B4-D693-4566-86CC-630DFC2DD5BF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,9 +42,19 @@ Global
 		{AB45923D-C351-49B7-B2D3-1C6DAAD2A16D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AB45923D-C351-49B7-B2D3-1C6DAAD2A16D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AB45923D-C351-49B7-B2D3-1C6DAAD2A16D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9EDB36B4-D693-4566-86CC-630DFC2DD5BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9EDB36B4-D693-4566-86CC-630DFC2DD5BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9EDB36B4-D693-4566-86CC-630DFC2DD5BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9EDB36B4-D693-4566-86CC-630DFC2DD5BF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{95B7FB7C-FD5D-4A2D-9BC8-AC01B0281895} = {25D56ABC-DDC8-45D8-80A1-CCDACF8D3A26}
+		{89EA94AA-87B2-4BFE-B265-027590D9CBAD} = {25D56ABC-DDC8-45D8-80A1-CCDACF8D3A26}
+		{0DAF05ED-B510-4C0A-B214-0CBBC63E264A} = {25D56ABC-DDC8-45D8-80A1-CCDACF8D3A26}
+		{27D8DF62-68ED-48F7-BA5C-B7145CCBCB2F} = {0DAF05ED-B510-4C0A-B214-0CBBC63E264A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0EE925D9-6499-46C8-846D-77997A257278}

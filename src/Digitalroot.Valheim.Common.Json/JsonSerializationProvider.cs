@@ -14,6 +14,7 @@ namespace Digitalroot.Valheim.Common
     {
       if (_customTypeLoaded) return;
 
+
       JSON.RegisterCustomType(typeof(Vector3),
         x =>
         {
