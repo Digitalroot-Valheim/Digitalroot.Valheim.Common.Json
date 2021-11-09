@@ -1,4 +1,4 @@
-using Digitalroot.Valheim.Common;
+using Digitalroot.Valheim.Common.Json;
 using NUnit.Framework;
 
 namespace UnitTests
