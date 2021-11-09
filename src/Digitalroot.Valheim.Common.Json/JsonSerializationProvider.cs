@@ -2,7 +2,7 @@
 using JetBrains.Annotations;
 using UnityEngine;
 
-namespace Digitalroot.Valheim.Common
+namespace Digitalroot.Valheim.Common.Json
 {
   [UsedImplicitly]
   public static class JsonSerializationProvider
