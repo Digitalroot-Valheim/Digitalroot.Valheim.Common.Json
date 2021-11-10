@@ -33,6 +33,15 @@ jobs:
     needs: validate-tag
     if: github.event.base_ref == 'refs/heads/main'
     runs-on: ubuntu-latest
+    permissions:
+      packages: write
+      contents: read
+    env:
+      SLN_FILE_NAME: Digitalroot.Valheim.Common.Json.sln
+      PROJ: Digitalroot.Valheim.Common.Json
+      NUGET_AUTH_TOKEN: ${{secrets.NUGET_PAT}}
+      DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
+      DOTNET_CLI_TELEMETRY_OPTOUT: true
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-dotnet@v1
