@@ -1,0 +1,11 @@
+{
+  "sources": [
+    {
+      "name": "Digitalroot-Valheim-Nuget-Repo",
+      "type": "s3",
+      "path": "https://digitalroot-valheim-nuget.s3.us-west-2.amazonaws.com/",
+      "bucketName": "digitalroot-valheim-nuget",
+      "region": "us-west-2"
+    }
+  ]
+}

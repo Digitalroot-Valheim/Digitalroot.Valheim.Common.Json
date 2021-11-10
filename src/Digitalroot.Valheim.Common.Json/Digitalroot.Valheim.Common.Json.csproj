@@ -25,7 +25,8 @@
 		<AssemblyVersion>1.0.3</AssemblyVersion>
 		<FileVersion>1.0.3</FileVersion>
 		<RestoreAdditionalProjectSources>
-			https://nuget.bepinex.dev/v3/index.json
+			https://nuget.bepinex.dev/v3/index.json;
+			https://digitalroot-valheim-nuget.s3.us-west-2.amazonaws.com/
 		</RestoreAdditionalProjectSources>
 	</PropertyGroup>
 

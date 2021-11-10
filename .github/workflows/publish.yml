@@ -40,3 +40,12 @@ jobs:
         run: dotnet pack src/${{ env.PROJ }}/${{ env.PROJ }}.csproj -c Release --no-restore --no-build --nologo
       - name: Publish package to Digitalroot-Valheim nuget repository
         run: dotnet nuget push src/${{ env.PROJ }}/bin/Release/*.nupkg --skip-duplicate
+      - name: Push nuget package to S3 storage
+        env:
+          AWS_ACCESS_KEY_ID: ${{secrets.NUGET_S3_REPO_KEY_ID}}
+          AWS_SECRET_ACCESS_KEY: ${{secrets.NUGET_S3_REPO_KEY_SECRET}}
+          AWS_DEFAULT_REGION: us-west-2
+        run: |
+          dotnet tool install -g sleet
+          sleet push src/${{ env.PROJ }}/bin/Release --skip-existing --config $GITHUB_WORKSPACE/src/sleet.json
+          sleet retention prune --config $GITHUB_WORKSPACE/src/sleet.json

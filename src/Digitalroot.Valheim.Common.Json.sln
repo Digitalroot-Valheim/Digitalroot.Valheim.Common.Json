@@ -6,6 +6,7 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{25D56ABC-DDC8-45D8-80A1-CCDACF8D3A26}"
 	ProjectSection(SolutionItems) = preProject
 		..\.gitignore = ..\.gitignore
+		sleet.json = sleet.json
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Digitalroot.Valheim.Common.Json", "Digitalroot.Valheim.Common.Json\Digitalroot.Valheim.Common.Json.csproj", "{AB45923D-C351-49B7-B2D3-1C6DAAD2A16D}"
