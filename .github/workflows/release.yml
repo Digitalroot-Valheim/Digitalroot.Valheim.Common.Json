@@ -35,7 +35,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       packages: write
-      contents: read
+      contents: write
     env:
       SLN_FILE_NAME: Digitalroot.Valheim.Common.Json.sln
       PROJ: Digitalroot.Valheim.Common.Json
@@ -71,7 +71,7 @@ jobs:
           sleet retention prune --config $GITHUB_WORKSPACE/src/sleet.json
 
       - name: Publish
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@0465cdad11d833cabb6414f885edd2ccdfda4b96
         with:
           files: src/${{ env.PROJ }}/bin/Release/*.nupkg
           name: "Release ${{ steps.tag.outputs.tag }}"
