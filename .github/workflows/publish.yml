@@ -6,7 +6,6 @@ on:
     paths:
       - 'src/**'   
       - '.github/workflows/**'   
-
 jobs:
   deploy:
     runs-on: ubuntu-latest

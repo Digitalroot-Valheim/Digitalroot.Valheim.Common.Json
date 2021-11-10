@@ -1,11 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net462</TargetFramework>
 	  <LangVersion>9</LangVersion>
     <IsPackable>false</IsPackable>
 	  <RestoreAdditionalProjectSources>
-		  https://nuget.bepinex.dev/v3/index.json
+		  https://nuget.bepinex.dev/v3/index.json;
+		  https://digitalroot-valheim-nuget.s3.us-west-2.amazonaws.com/index.json
 	  </RestoreAdditionalProjectSources>
   </PropertyGroup>
 
@@ -13,9 +14,10 @@
     <PackageReference Include="NUnit" Version="3.13.2" />
     <PackageReference Include="NUnit3TestAdapter" Version="4.1.0" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.0.0" />
-    <PackageReference Include="NunitXml.TestLogger" Version="3.0.117" />
+    <PackageReference Include="NunitXml.TestLogger" Version="3.0.117">
+      <IncludeAssets>compile</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="UnityEngine.Modules" Version="[2019.4.32]">
-      <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
   </ItemGroup>

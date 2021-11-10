@@ -1,0 +1,72 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v[0-9]+.[0-9]+.[0-9]+' # Alternative - "v*.*.*"
+    branches:
+      - main # Default release branch
+    paths:
+      - 'src/**'   
+      - '.github/workflows/**'   
+
+jobs:
+  # Validate tag with proper regex since the check above is very limited.
+  validate-tag:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - id: tag
+        uses: dawidd6/action-get-tag@v1
+      - id: regex-match
+        uses: actions-ecosystem/action-regex-match@v2
+        with:
+          text: ${{ steps.tag.outputs.tag }}
+          regex: '^([1-9][0-9]*|[0-9])\.([1-9][0-9]*|[0-9])\.([1-9][0-9]*|[0-9])$'
+      - id: fail-fast
+        if: ${{ steps.regex-match.outputs.match == '' }}
+        uses: actions/github-script@v3
+        with:
+          script: core.setFailed('Tag is invalid')
+
+  release:
+    needs: validate-tag
+    if: github.event.base_ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: '6.0.x'
+          source-url: https://nuget.pkg.github.com/Digitalroot-Valheim/index.json
+      - id: tag
+        uses: dawidd6/action-get-tag@v1
+      - name: Install dependencies
+        run: dotnet restore src/${{ env.SLN_FILE_NAME }} --nologo
+      - name: Build    
+        run: dotnet build src/${{ env.SLN_FILE_NAME }} -c Release --no-restore --nologo
+      - name: Test  
+        run: dotnet test src/${{ env.SLN_FILE_NAME }} -c Release --no-build --nologo
+      - name: Create the package
+        run: dotnet pack src/${{ env.PROJ }}/${{ env.PROJ }}.csproj -c Release --no-restore --no-build --nologo
+      - name: Publish package to Digitalroot-Valheim nuget repository
+        run: dotnet nuget push src/${{ env.PROJ }}/bin/Release/*.nupkg --skip-duplicate
+      - name: Push nuget package to Digitalroot-Valheim S3 nuget repository
+        env:
+          AWS_ACCESS_KEY_ID: ${{secrets.NUGET_S3_REPO_KEY_ID}}
+          AWS_SECRET_ACCESS_KEY: ${{secrets.NUGET_S3_REPO_KEY_SECRET}}
+          AWS_DEFAULT_REGION: us-west-2
+        run: |
+          dotnet tool install -g sleet
+          sleet push src/${{ env.PROJ }}/bin/Release --skip-existing --config $GITHUB_WORKSPACE/src/sleet.json
+          sleet retention prune --config $GITHUB_WORKSPACE/src/sleet.json
+
+      - name: Publish
+        uses: softprops/action-gh-release@v1
+        with:
+          files: src/${{ env.PROJ }}/bin/Release/*.nupkg
+          name: "Release ${{ steps.tag.outputs.tag }}"
+          #body_path: ${{ github.workspace }}/.github/RELEASE_TEMPLATE.md
+          generate_release_notes: true
+          draft: true
+          prerelease: ${{ startsWith(steps.tag.outputs.tag, '0.') }}
