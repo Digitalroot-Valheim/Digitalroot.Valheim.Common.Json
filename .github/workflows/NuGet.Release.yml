@@ -127,8 +127,6 @@ jobs:
     steps:
       - name: Download nuget package
         uses: actions/download-artifact@v2
-        with:
-          path: ~/
 
       - name: Push to S3 nuget repository
         env:
@@ -137,8 +135,8 @@ jobs:
           AWS_DEFAULT_REGION: us-west-2
         run: |
           dotnet tool install -g sleet
-          sleet push $GITHUB_WORKSPACE --skip-existing --config $GITHUB_WORKSPACE/sleet.json
-          sleet retention prune --config $GITHUB_WORKSPACE/sleet.json
+          sleet push $GITHUB_WORKSPACE/nuget-package --skip-existing --config $GITHUB_WORKSPACE/sleet.json
+          sleet retention prune --config $GITHUB_WORKSPACE/sleet-config/sleet.json
 
   #[PUBLISH]
   publish:
