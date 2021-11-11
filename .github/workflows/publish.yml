@@ -16,7 +16,7 @@ jobs:
         run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
 
   build:
-    needs: [setdate, validate-tag]
+    needs: [setdate]
     runs-on: ubuntu-latest
     if: ${{ false }} # disable for now
     permissions:
