@@ -87,8 +87,12 @@ jobs:
         with:
           name: test-results
 
+      - name: List files in the repository
+        run: |
+          ls ${{ github.workspace }}
+
       - name: Test Reporter
-        uses: dorny/test-reporter@v1.5.0
+        uses: dorny/test-reporter@v1
         with:
           artifact: test-results            # artifact name
           name: NUnit Tests                 # Name of the check run which will be created
