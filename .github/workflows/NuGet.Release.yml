@@ -94,9 +94,10 @@ jobs:
       - name: Test Reporter
         uses: dorny/test-reporter@v1
         with:
-          artifact: test-results            # artifact name
+#          artifact: test-results            # artifact name
           name: NUnit Tests                 # Name of the check run which will be created
-          path: '*.trx'                     # Path to test results (inside artifact .zip)
+          #path: '*.trx'                    # Path to test results (inside artifact .zip)
+          path: ./test-results.trx          # Path to test results
           reporter: dotnet-trx              # Format of test results
           path-replace-backslashes: 'true'
           list-suites: 'all'
