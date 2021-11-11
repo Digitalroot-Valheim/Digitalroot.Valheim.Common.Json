@@ -21,7 +21,7 @@
 		<PackageReleaseNotes>Update to current packages</PackageReleaseNotes>
 		<LangVersion>9</LangVersion>
 		<NeutralLanguage>en-US</NeutralLanguage>
-		<PackageVersion>1.0.3</PackageVersion>
+		<VersionPrefix>1.0.3</VersionPrefix>
 		<AssemblyVersion>1.0.3</AssemblyVersion>
 		<FileVersion>1.0.3</FileVersion>
 		<RestoreAdditionalProjectSources>

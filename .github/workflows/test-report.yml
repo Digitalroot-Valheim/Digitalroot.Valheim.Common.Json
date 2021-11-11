@@ -7,6 +7,7 @@ on:
 jobs:
   report:
     runs-on: ubuntu-latest
+    if: ${{ false }} # disable for now
     steps:
     - uses: dorny/test-reporter@v1
       with:

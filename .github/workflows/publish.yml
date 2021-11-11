@@ -7,8 +7,18 @@ on:
       - 'src/**'   
       - '.github/workflows/**'   
 jobs:
-  deploy:
+  setdate:
     runs-on: ubuntu-latest
+    if: ${{ false }} # disable for now
+    steps:
+      - name: Get current date
+        id: date
+        run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
+
+  build:
+    needs: [setdate, validate-tag]
+    runs-on: ubuntu-latest
+    if: ${{ false }} # disable for now
     permissions:
       packages: write
       contents: read
