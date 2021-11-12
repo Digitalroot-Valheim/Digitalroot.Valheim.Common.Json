@@ -183,5 +183,5 @@ jobs:
           name: "Release ${{ needs.build.outputs.assembly-version }}"
           #body_path: ${{ github.workspace }}/.github/RELEASE_TEMPLATE.md
           generate_release_notes: true
-          draft: true
+          draft: false
           prerelease: ${{ contains(steps.tag.outputs.tag, '-') }}
