@@ -195,6 +195,7 @@ jobs:
           allowUpdates: true
           token: ${{ secrets.GITHUB_TOKEN }}
           commit: main
+          artifacts: ${{ github.workspace }}/*.nupkg
 
       #- name: Publish Release
         #uses: softprops/action-gh-release@0465cdad11d833cabb6414f885edd2ccdfda4b96
