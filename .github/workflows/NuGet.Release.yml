@@ -53,7 +53,7 @@ jobs:
         uses: actions/upload-artifact@v2
         if: always()
         with:
-          path: ./src/UnitTests/TestResults/test-results.trx
+          path: ${{ github.workspace }}/src/UnitTests/TestResults/test-results.trx
           name: test-results
           retention-days: 1
 
@@ -63,14 +63,14 @@ jobs:
       - name: Save Package
         uses: actions/upload-artifact@v2
         with:
-          path: src/${{ env.PROJ }}/bin/Release/*.nupkg
+          path: ${{ github.workspace }}/src/${{ env.PROJ }}/bin/Release/*.nupkg
           name: nuget-package
           retention-days: 1
 
       - name: Save Sleet Config
         uses: actions/upload-artifact@v2
         with:
-          path: src/sleet.json
+          path: ${{ github.workspace }}/src/sleet.json
           name: sleet-config
           retention-days: 1
 
@@ -94,11 +94,9 @@ jobs:
       - name: Test Reporter
         uses: dorny/test-reporter@v1.5.0
         with:
-#          artifact: test-results            # artifact name
-          name: NUnit Tests                 # Name of the check run which will be created
-          #path: '*.trx'                    # Path to test results (inside artifact .zip)
-          path: ./test-results.trx          # Path to test results
-          reporter: dotnet-trx              # Format of test results
+          name: NUnit Tests                              # Name of the check run which will be created
+          path: ${{ github.workspace }}/test-results.trx # Path to test results
+          reporter: dotnet-trx                           # Format of test results
           path-replace-backslashes: 'true'
           list-suites: 'all'
           list-tests: 'all'
@@ -157,10 +155,15 @@ jobs:
     runs-on: ubuntu-latest
     if: ${{ false }} # disable for now
     steps:
+      - name: Download nuget package
+        uses: actions/download-artifact@v2
+        with:
+          name: nuget-package
+
       - name: Publish Release
         uses: softprops/action-gh-release@0465cdad11d833cabb6414f885edd2ccdfda4b96
         with:
-          files: src/${{ env.PROJ }}/bin/Release/*.nupkg
+          files: ${{ github.workspace }}/*.nupkg
           name: "Release ${{ steps.tag.outputs.tag }}"
           #body_path: ${{ github.workspace }}/.github/RELEASE_TEMPLATE.md
           generate_release_notes: true
