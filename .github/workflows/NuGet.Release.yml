@@ -74,6 +74,19 @@ jobs:
           name: sleet-config
           retention-days: 1
 
+      - name: get-net-sdk-project-versions-action
+        uses: kzrnm/get-net-sdk-project-versions-action@b7bb297b2d300fb378be2cd93a262a15bcf9d79b
+        id: get-version
+        with:
+          proj-path: ${{ github.workspace }}/src/${{ env.PROJ }}/${{ env.PROJ }}.csproj
+      - run: echo "${{steps.get-version.outputs.version}}"
+      - run: echo "${{steps.get-version.outputs.version-prefix}}" 
+      - run: echo "${{steps.get-version.outputs.version-suffix}}" 
+      - run: echo "${{steps.get-version.outputs.package-version}}" 
+      - run: echo "${{steps.get-version.outputs.assembly-version}}" 
+      - run: echo "${{steps.get-version.outputs.file-version}}" 
+      - run: echo "${{steps.get-version.outputs.informational-version}}" 
+
   #[POSTBUILD]
   postbuild:
     needs: [build]
@@ -169,3 +182,5 @@ jobs:
           generate_release_notes: true
           draft: true
           prerelease: ${{ startsWith(steps.tag.outputs.tag, '0.') }}
+
+
