@@ -79,13 +79,14 @@ jobs:
         id: get-version
         with:
           proj-path: ${{ github.workspace }}/src/${{ env.PROJ }}/${{ env.PROJ }}.csproj
-      - run: echo "${{steps.get-version.outputs.version}}"
-      - run: echo "${{steps.get-version.outputs.version-prefix}}" 
-      - run: echo "${{steps.get-version.outputs.version-suffix}}" 
-      - run: echo "${{steps.get-version.outputs.package-version}}" 
-      - run: echo "${{steps.get-version.outputs.assembly-version}}" 
-      - run: echo "${{steps.get-version.outputs.file-version}}" 
-      - run: echo "${{steps.get-version.outputs.informational-version}}" 
+      - run : |
+          echo "version ${{steps.get-version.outputs.version}}"
+          echo "version-prefix ${{steps.get-version.outputs.version-prefix}}" 
+          echo "version-suffix ${{steps.get-version.outputs.version-suffix}}" 
+          echo "package-version ${{steps.get-version.outputs.package-version}}" 
+          echo "assembly-version ${{steps.get-version.outputs.assembly-version}}" 
+          echo "file-version ${{steps.get-version.outputs.file-version}}" 
+          echo "informational-version ${{steps.get-version.outputs.informational-version}}" 
 
   #[POSTBUILD]
   postbuild:
