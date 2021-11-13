@@ -50,9 +50,6 @@ jobs:
         id: previoustag
         with:
           semver_only: true
-        #uses: WyriHaximus/github-action-get-previous-tag@8a0e045f02c0a3a04e1452df58b90fc7e555e950
-        #with:
-          #fallback: 1.0.0 # Optional fallback tag to use when no tag can be found
 
       - name: Get next minor version
         uses: WyriHaximus/github-action-next-semvers@33d116a4c239252582a60a1ba8dbba63ad493ffd
