@@ -4,7 +4,7 @@
 		<TargetFrameworks>net462</TargetFrameworks>
 		<PackageId>Digitalroot.Valheim.Common.Json</PackageId>
 		<RootNamespace>Digitalroot.Valheim.Common.Json</RootNamespace>
-		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<GeneratePackageOnBuild>false</GeneratePackageOnBuild>
 		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
 		<PackageLicenseExpression>AGPL-3.0-or-later</PackageLicenseExpression>
 		<Copyright>Copyright © Digitalroot Technologies 2021</Copyright>
