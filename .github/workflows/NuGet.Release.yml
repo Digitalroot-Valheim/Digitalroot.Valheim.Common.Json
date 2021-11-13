@@ -79,11 +79,11 @@ jobs:
 
       - name: Pack Release
         if: ${{ github.ref == 'refs/heads/main' }}
-        run: dotnet pack $GITHUB_WORKSPACE/src/${{ env.PROJ }}/${{ env.PROJ }}.csproj -c Release --no-restore --no-build --nologo
+        run: dotnet pack $GITHUB_WORKSPACE/src/${{ env.PROJ }}/${{ env.PROJ }}.csproj -c Release --no-restore --no-build --nologo /p:Version=${{ steps.semvers.outputs.patch }}
 
       - name: Pack PreRelease
         if: ${{ github.ref != 'refs/heads/main' }}
-        run: dotnet pack $GITHUB_WORKSPACE/src/${{ env.PROJ }}/${{ env.PROJ }}.csproj -c Release --no-restore --no-build --nologo --version-suffix build-$GITHUB_RUN_NUMBER
+        run: dotnet pack $GITHUB_WORKSPACE/src/${{ env.PROJ }}/${{ env.PROJ }}.csproj -c Release --no-restore --no-build --nologo /p:Version=${{ steps.semvers.outputs.patch }} --version-suffix build-$GITHUB_RUN_NUMBER
 
       - name: Save Package
         uses: actions/upload-artifact@v2
