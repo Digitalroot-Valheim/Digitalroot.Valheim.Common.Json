@@ -57,6 +57,11 @@ jobs:
         with:
           version: ${{ steps.previoustag.outputs.tag }}
 
+      - name: Print Ref
+        run: | 
+          echo $GITHUB_REF
+          echo '${{ github.event.base_ref }}'
+
       - name: Build    
         run: dotnet build $GITHUB_WORKSPACE/src/${{ env.SLN_FILE_NAME }} -c Release --no-restore --nologo /p:Version=${{ steps.semvers.outputs.patch }}
 
@@ -73,9 +78,7 @@ jobs:
 
       - name: Pack Release
         if: github.event.base_ref == 'refs/heads/main'
-        run: |
-          echo '${{ github.event.base_ref }}'
-          dotnet pack $GITHUB_WORKSPACE/src/${{ env.PROJ }}/${{ env.PROJ }}.csproj -c Release --no-restore --no-build --nologo
+        run: dotnet pack $GITHUB_WORKSPACE/src/${{ env.PROJ }}/${{ env.PROJ }}.csproj -c Release --no-restore --no-build --nologo
 
       - name: Pack PreRelease
         if: github.event.base_ref != 'refs/heads/main'
