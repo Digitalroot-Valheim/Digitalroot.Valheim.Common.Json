@@ -57,9 +57,6 @@ jobs:
         with:
           version: ${{ steps.previoustag.outputs.tag }}
 
-      - name: Set Version
-        run: echo 'Update Version Here'
-
       - name: Build    
         run: dotnet build $GITHUB_WORKSPACE/src/${{ env.SLN_FILE_NAME }} -c Release --no-restore --nologo /p:Version=${{ steps.semvers.outputs.patch }}
 
