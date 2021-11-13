@@ -60,7 +60,7 @@ jobs:
       - name: Print Ref
         run: | 
           echo $GITHUB_REF
-          echo '${{ github.event.base_ref }}'
+          echo '${{ github.ref.name }}'
 
       - name: Build    
         run: dotnet build $GITHUB_WORKSPACE/src/${{ env.SLN_FILE_NAME }} -c Release --no-restore --nologo /p:Version=${{ steps.semvers.outputs.patch }}
