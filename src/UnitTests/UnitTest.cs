@@ -5,7 +5,9 @@ namespace UnitTests
 {
   public class JsonTests
   {
-    private const string jsonRef = "{\"$types\":{\"UnitTests.JsonTests+UnitTestJsonClass, UnitTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null\":\"1\"},\"$type\":\"1\",\"String\":\"String\",\"Int\":999}";
+    private readonly string jsonRef = "{\"$types\":{\"UnitTests.JsonTests+UnitTestJsonClass, UnitTests, Version=" 
+                                      + typeof(UnitTestJsonClass).Assembly.GetName().Version 
+                                      + ", Culture=neutral, PublicKeyToken=null\":\"1\"},\"$type\":\"1\",\"String\":\"String\",\"Int\":999}";
 
     [Test(Author = "Digitalroot", Description = "Tests Object to JSON.", TestOf = typeof(JsonSerializationProvider)), Timeout(500)]
     public void ToJsonTest()

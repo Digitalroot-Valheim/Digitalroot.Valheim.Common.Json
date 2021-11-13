@@ -144,6 +144,7 @@ jobs:
           list-suites: 'all'
           list-tests: 'all'
           max-annotations: '50'
+          fail-on-error: false
 
   #[PUSH GH]
   push-gh-nuget:
