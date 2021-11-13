@@ -30,12 +30,6 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
-    env:
-      SLN_FILE_NAME: Digitalroot.Valheim.Common.Json.sln
-      PROJ: Digitalroot.Valheim.Common.Json
-      NUGET_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
-      DOTNET_CLI_TELEMETRY_OPTOUT: true
     outputs:
       assembly-version: ${{ steps.get-version.outputs.assembly-version }}
       tag-version: ${{ steps.semvers.outputs.patch }}
