@@ -8,6 +8,13 @@ on:
       - 'src/**'   
       - '.github/workflows/**' 
 
+env:
+  SLN_FILE_NAME: Digitalroot.Valheim.Common.Json.sln
+  PROJ: Digitalroot.Valheim.Common.Json
+  NUGET_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
+  DOTNET_CLI_TELEMETRY_OPTOUT: true
+
 jobs:
   #[PREBUILD]
   prebuild:
@@ -31,6 +38,7 @@ jobs:
       DOTNET_CLI_TELEMETRY_OPTOUT: true
     outputs:
       assembly-version: ${{ steps.get-version.outputs.assembly-version }}
+      tag-version: ${{ steps.semvers.outputs.patch }}
     steps:
       - name: Setup .NET Core SDK
         uses: actions/setup-dotnet@v1.8.2
@@ -43,11 +51,23 @@ jobs:
       - name: Restore
         run: dotnet restore $GITHUB_WORKSPACE/src/${{ env.SLN_FILE_NAME }} --nologo
 
+      - name: Get Previous tag
+        id: previoustag
+        uses: WyriHaximus/github-action-get-previous-tag@8a0e045f02c0a3a04e1452df58b90fc7e555e950
+        with:
+          fallback: 1.0.0 # Optional fallback tag to use when no tag can be found
+
+      - name: Get next minor version
+        id: semvers
+        uses: WyriHaximus/github-action-next-semvers@33d116a4c239252582a60a1ba8dbba63ad493ffd
+        with:
+          version: ${{ steps.previoustag.outputs.tag }}
+
       - name: Set Version
         run: echo 'Update Version Here'
 
       - name: Build    
-        run: dotnet build $GITHUB_WORKSPACE/src/${{ env.SLN_FILE_NAME }} -c Release --no-restore --nologo
+        run: dotnet build $GITHUB_WORKSPACE/src/${{ env.SLN_FILE_NAME }} -c Release --no-restore --nologo /p:Version=${{ steps.semvers.outputs.patch }}
 
       - name: Test  
         run: dotnet test $GITHUB_WORKSPACE/src/${{ env.SLN_FILE_NAME }} -c Release --no-build -l "trx;LogFileName=test-results.trx" --nologo
@@ -60,8 +80,13 @@ jobs:
           name: test-results
           retention-days: 1
 
-      - name: Pack
+      - name: Pack Release
+        if: github.event.base_ref == 'refs/heads/main'
         run: dotnet pack $GITHUB_WORKSPACE/src/${{ env.PROJ }}/${{ env.PROJ }}.csproj -c Release --no-restore --no-build --nologo
+
+      - name: Pack PreRelease
+        if: github.event.base_ref != 'refs/heads/main'
+        run: dotnet pack $GITHUB_WORKSPACE/src/${{ env.PROJ }}/${{ env.PROJ }}.csproj -c Release --no-restore --no-build --nologo 
 
       - name: Save Package
         uses: actions/upload-artifact@v2
@@ -189,13 +214,15 @@ jobs:
       - name: Create a GitHub release
         uses: ncipollo/release-action@v1
         with:
-          tag: v${{ needs.build.outputs.assembly-version }}
-          name: Release ${{ needs.build.outputs.assembly-version }}
+          tag: v${{ needs.build.outputs.tag-version }}
+          name: Release ${{ needs.build.outputs.tag-version }}
           body: ${{ steps.tag_version.outputs.changelog }}
           allowUpdates: true
           token: ${{ secrets.GITHUB_TOKEN }}
           commit: main
           artifacts: ${{ github.workspace }}/*.nupkg
+          omitBodyDuringUpdate: true
+          omitNameDuringUpdate: true
 
       #- name: Publish Release
         #uses: softprops/action-gh-release@0465cdad11d833cabb6414f885edd2ccdfda4b96
