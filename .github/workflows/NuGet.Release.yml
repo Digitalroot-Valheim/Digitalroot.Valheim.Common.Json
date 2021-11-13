@@ -118,6 +118,7 @@ jobs:
 
   #[POSTBUILD]
   postbuild:
+    if: always()
     needs: [build]
     runs-on: ubuntu-latest
     steps:
