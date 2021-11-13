@@ -82,7 +82,9 @@ jobs:
 
       - name: Pack Release
         if: github.event.base_ref == 'refs/heads/main'
-        run: dotnet pack $GITHUB_WORKSPACE/src/${{ env.PROJ }}/${{ env.PROJ }}.csproj -c Release --no-restore --no-build --nologo
+        run: |
+          echo '${{ github.event.base_ref }}'
+          dotnet pack $GITHUB_WORKSPACE/src/${{ env.PROJ }}/${{ env.PROJ }}.csproj -c Release --no-restore --no-build --nologo
 
       - name: Pack PreRelease
         if: github.event.base_ref != 'refs/heads/main'
