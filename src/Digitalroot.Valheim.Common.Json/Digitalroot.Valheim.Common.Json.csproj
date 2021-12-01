@@ -2,6 +2,7 @@
 
 	<PropertyGroup>
 		<TargetFrameworks>net462</TargetFrameworks>
+		<LangVersion>9</LangVersion>
 		<PackageId>Digitalroot.Valheim.Common.Json</PackageId>
 		<RootNamespace>Digitalroot.Valheim.Common.Json</RootNamespace>
 		<GeneratePackageOnBuild>false</GeneratePackageOnBuild>
@@ -19,7 +20,10 @@
 		<Product>Digitalroot Valheim Json Serialization Provider</Product>
 		<Description>Json Serialization Provider for Valheim</Description>
 		<PackageReleaseNotes>Update to current packages</PackageReleaseNotes>
-		<LangVersion>9</LangVersion>
+		<ApplicationIcon>ValheimRcon_black.ico</ApplicationIcon>
+		<IsPublishable>False</IsPublishable>
+		<DebugType>none</DebugType>
+		<BaseIntermediateOutputPath>obj\</BaseIntermediateOutputPath>
 		<NeutralLanguage>en-US</NeutralLanguage>
 		<VersionPrefix>1.0.0</VersionPrefix>
 		<RestoreAdditionalProjectSources>
@@ -36,9 +40,12 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="fastJSON" Version="2.4.0.4" />
+		<PackageReference Include="fastJSON" Version="2.4.0.4">
+		  <IncludeAssets></IncludeAssets>
+		</PackageReference>
 		<PackageReference Include="UnityEngine.Modules" Version="[2019.4.32]">
-		  <IncludeAssets>compile</IncludeAssets>
+		  <IncludeAssets></IncludeAssets>
+		  <ExcludeAssets>runtime</ExcludeAssets>
 		</PackageReference>
 	</ItemGroup>
 
