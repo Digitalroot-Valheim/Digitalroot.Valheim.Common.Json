@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "dependencies": {
+    ".NETFramework,Version=v4.6.2": {
+      "fastJSON": {
+        "type": "Direct",
+        "requested": "[2.4.0.4, )",
+        "resolved": "2.4.0.4",
+        "contentHash": "lbxY+miTOvCNbNfOk8HcbmBD9F6wv2dRKZlMjtJBm6rjA5vFKXBYtR6eoIe96HnCHOE1nCJbMsaZDKGNPg5mIA=="
+      },
+      "UnityEngine.Modules": {
+        "type": "Direct",
+        "requested": "[2019.4.31, 2019.4.31]",
+        "resolved": "2019.4.31",
+        "contentHash": "xZjdfGGzZw6nnrn4auRNis6WnAlsvqY1XXioEGJnSku+CylESgEt/sTLYlrbrQ0srnLfSCfx80vR8z4SsI1EuQ=="
+      }
+    }
+  }
+}
