@@ -7,7 +7,7 @@ namespace UnitTests
   {
     private readonly string jsonRef = "{\"$types\":{\"UnitTests.JsonTests+UnitTestJsonClass, UnitTests, Version=" 
                                       + typeof(UnitTestJsonClass).Assembly.GetName().Version 
-                                      + ", Culture=neutral, PublicKeyToken=null\":\"1\"},\"$type\":\"1\",\"String\":\"String\",\"Int\":999}";
+                                      + ", Culture=neutral, PublicKeyToken=null\":\"1\"},\"$type\":\"1\",\"String\":\"String\",\"Int\":9999}";
 
     [Test(Author = "Digitalroot", Description = "Tests Object to JSON.", TestOf = typeof(JsonSerializationProvider)), Timeout(500)]
     public void ToJsonTest()
@@ -23,7 +23,7 @@ namespace UnitTests
     {
       var obj = JsonSerializationProvider.FromJson<UnitTestJsonClass>(jsonRef);
       Assert.That(obj, Is.Not.Null);
-      Assert.That(obj.Int, Is.EqualTo(999));
+      Assert.That(obj.Int, Is.EqualTo(9999));
       Assert.That(obj.String, Is.EqualTo("String"));
     }
 
@@ -35,7 +35,7 @@ namespace UnitTests
       public UnitTestJsonClass()
       {
         String = nameof(String);
-        Int = 999;
+        Int = 9999;
       }
     }
   }
