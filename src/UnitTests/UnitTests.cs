@@ -5,11 +5,16 @@ namespace UnitTests
 {
   public class JsonTests
   {
+    [SetUp]
+    public void Setup()
+    {
+    }
+
     private readonly string jsonRef = "{\"$types\":{\"UnitTests.JsonTests+UnitTestJsonClass, UnitTests, Version=" 
                                       + typeof(UnitTestJsonClass).Assembly.GetName().Version 
                                       + ", Culture=neutral, PublicKeyToken=null\":\"1\"},\"$type\":\"1\",\"String\":\"String\",\"Int\":9999}";
 
-    [Test(Author = "Digitalroot", Description = "Tests Object to JSON.", TestOf = typeof(JsonSerializationProvider)), Timeout(500)]
+    [Test(Author = "Digitalroot", Description = "Tests Object to JSON.", TestOf = typeof(JsonSerializationProvider)), Timeout(5000)]
     public void ToJsonTest()
     {
       var obj = new UnitTestJsonClass();
@@ -18,7 +23,7 @@ namespace UnitTests
       Assert.That(json, Is.EqualTo(jsonRef));
     }
 
-    [Test(Author = "Digitalroot", Description = "Tests JSON to object.", TestOf = typeof(JsonSerializationProvider)), Timeout(500)]
+    [Test(Author = "Digitalroot", Description = "Tests JSON to object.", TestOf = typeof(JsonSerializationProvider)), Timeout(5000)]
     public void FromJsonTest()
     {
       var obj = JsonSerializationProvider.FromJson<UnitTestJsonClass>(jsonRef);

@@ -2,17 +2,17 @@
   "version": 1,
   "dependencies": {
     ".NETFramework,Version=v4.6.2": {
+      "Digitalroot.Valheim.Common.References": {
+        "type": "Direct",
+        "requested": "[0.212.7, )",
+        "resolved": "0.212.7",
+        "contentHash": "4mpt8e/2YXg5nCZBEwyVp/uLhsj4FqvQgRchly70p13wyONf7KAUSmsP6o9mfMKRRzvymPhvAKTtrIgaOPxBRA=="
+      },
       "fastJSON": {
         "type": "Direct",
         "requested": "[2.4.0.4, )",
         "resolved": "2.4.0.4",
         "contentHash": "lbxY+miTOvCNbNfOk8HcbmBD9F6wv2dRKZlMjtJBm6rjA5vFKXBYtR6eoIe96HnCHOE1nCJbMsaZDKGNPg5mIA=="
-      },
-      "UnityEngine.Modules": {
-        "type": "Direct",
-        "requested": "[2020.3.3, 2020.3.3]",
-        "resolved": "2020.3.3",
-        "contentHash": "dvoovYl+xSitTB6bmeE8+PfjkxqhxAaV8Ay2Ycss0ps08+yBHy9hso5Po0eh7HT/X/g+7wTUfhmhbcjPLJRewA=="
       }
     }
   }

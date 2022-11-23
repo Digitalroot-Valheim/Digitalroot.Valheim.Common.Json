@@ -41,13 +41,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<PackageReference Include="Digitalroot.Valheim.Common.References" Version="0.212.7" />
 		<PackageReference Include="fastJSON" Version="2.4.0.4">
 		  <IncludeAssets></IncludeAssets>
 		</PackageReference>
-    <PackageReference Include="UnityEngine.Modules" Version="[2020.3.3]">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>compile</IncludeAssets>
-    </PackageReference>
 	</ItemGroup>
 
 </Project>

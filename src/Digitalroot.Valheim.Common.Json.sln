@@ -30,7 +30,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{
 		..\.github\workflows\nuget.release.yml = ..\.github\workflows\nuget.release.yml
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTests", "UnitTests\UnitTests.csproj", "{9EDB36B4-D693-4566-86CC-630DFC2DD5BF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "UnitTests\UnitTests.csproj", "{A4EBBE7E-9049-4BE8-B147-79EF57C80959}"
+	ProjectSection(ProjectDependencies) = postProject
+		{AB45923D-C351-49B7-B2D3-1C6DAAD2A16D} = {AB45923D-C351-49B7-B2D3-1C6DAAD2A16D}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -42,10 +45,10 @@ Global
 		{AB45923D-C351-49B7-B2D3-1C6DAAD2A16D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AB45923D-C351-49B7-B2D3-1C6DAAD2A16D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AB45923D-C351-49B7-B2D3-1C6DAAD2A16D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9EDB36B4-D693-4566-86CC-630DFC2DD5BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9EDB36B4-D693-4566-86CC-630DFC2DD5BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9EDB36B4-D693-4566-86CC-630DFC2DD5BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9EDB36B4-D693-4566-86CC-630DFC2DD5BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A4EBBE7E-9049-4BE8-B147-79EF57C80959}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4EBBE7E-9049-4BE8-B147-79EF57C80959}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4EBBE7E-9049-4BE8-B147-79EF57C80959}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A4EBBE7E-9049-4BE8-B147-79EF57C80959}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
