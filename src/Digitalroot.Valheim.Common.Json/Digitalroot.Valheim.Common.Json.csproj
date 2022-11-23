@@ -44,10 +44,10 @@
 		<PackageReference Include="fastJSON" Version="2.4.0.4">
 		  <IncludeAssets></IncludeAssets>
 		</PackageReference>
-		<PackageReference Include="UnityEngine.Modules" Version="[2019.4.31]">
-		  <IncludeAssets></IncludeAssets>
-		  <ExcludeAssets>runtime</ExcludeAssets>
-		</PackageReference>
+    <PackageReference Include="UnityEngine.Modules" Version="[2020.3.3]">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>compile</IncludeAssets>
+    </PackageReference>
 	</ItemGroup>
 
 </Project>
