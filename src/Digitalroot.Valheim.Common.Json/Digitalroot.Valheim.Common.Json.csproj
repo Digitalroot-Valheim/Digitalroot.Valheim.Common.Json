@@ -1,50 +1,48 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-	<PropertyGroup>
-		<TargetFrameworks>net462</TargetFrameworks>
-		<LangVersion>9</LangVersion>
-		<PackageId>Digitalroot.Valheim.Common.Json</PackageId>
-		<RootNamespace>Digitalroot.Valheim.Common.Json</RootNamespace>
-		<GeneratePackageOnBuild>false</GeneratePackageOnBuild>
-		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-		<PackageLicenseExpression>AGPL-3.0-or-later</PackageLicenseExpression>
-		<Copyright>Copyright © Digitalroot Technologies 2021 - 2023</Copyright>
-		<PackageProjectUrl>https://github.com/Digitalroot-Valheim/Digitalroot.Valheim.Common.Json</PackageProjectUrl>
-		<RepositoryUrl>https://github.com/Digitalroot-Valheim/Digitalroot.Valheim.Common.Json</RepositoryUrl>
-		<RepositoryType>git</RepositoryType>
-		<PackageIcon>ValheimRcon_black.png</PackageIcon>
-		<PackageIconUrl />
-		<PackageTags>valheim, digitalroot, json</PackageTags>
-		<Authors>Digitalroot</Authors>
-		<Company>Digitalroot Technologies</Company>
-		<Product>Digitalroot Valheim Json Serialization Provider</Product>
-		<Description>Json Serialization Provider for Valheim</Description>
-		<PackageReleaseNotes>Update to current packages</PackageReleaseNotes>
-		<ApplicationIcon>ValheimRcon_black.ico</ApplicationIcon>
-		<IsPublishable>False</IsPublishable>
-		<DebugType>embedded</DebugType>
+  <PropertyGroup>
+    <TargetFrameworks>net462</TargetFrameworks>
+    <LangVersion>9</LangVersion>
+    <PackageId>Digitalroot.Valheim.Common.Json</PackageId>
+    <RootNamespace>Digitalroot.Valheim.Common.Json</RootNamespace>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <PackageLicenseExpression>AGPL-3.0-or-later</PackageLicenseExpression>
+    <Copyright>Copyright © Digitalroot Technologies 2021 - 2023</Copyright>
+    <PackageProjectUrl>https://github.com/Digitalroot-Valheim/Digitalroot.Valheim.Common.Json</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Digitalroot-Valheim/Digitalroot.Valheim.Common.Json</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageIcon>ValheimRcon_black.png</PackageIcon>
+    <PackageIconUrl />
+    <PackageTags>valheim, digitalroot, json</PackageTags>
+    <Authors>Digitalroot</Authors>
+    <Company>Digitalroot Technologies</Company>
+    <Product>Digitalroot Valheim Json Serialization Provider</Product>
+    <Description>Json Serialization Provider for Valheim</Description>
+    <PackageReleaseNotes>Update to current packages</PackageReleaseNotes>
+    <ApplicationIcon>ValheimRcon_black.ico</ApplicationIcon>
+    <IsPublishable>False</IsPublishable>
+    <DebugType>embedded</DebugType>
     <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
-		<BaseIntermediateOutputPath>obj\</BaseIntermediateOutputPath>
-		<NeutralLanguage>en-US</NeutralLanguage>
-		<VersionPrefix>1.0.0</VersionPrefix>
-		<RestoreAdditionalProjectSources>
-			https://nuget.bepinex.dev/v3/index.json;
-			https://digitalroot-valheim-nuget.s3.us-west-2.amazonaws.com/index.json
-		</RestoreAdditionalProjectSources>
-	</PropertyGroup>
+    <BaseIntermediateOutputPath>obj\</BaseIntermediateOutputPath>
+    <NeutralLanguage>en-US</NeutralLanguage>
+    <VersionPrefix>1.0.0</VersionPrefix>
+    <RestoreAdditionalProjectSources>
+      https://nuget.bepinex.dev/v3/index.json;
+      https://digitalroot-valheim-nuget.s3.us-west-2.amazonaws.com/index.json
+    </RestoreAdditionalProjectSources>
+  </PropertyGroup>
 
-	<ItemGroup>
-		<None Include="..\ico\ValheimRcon_black.png">
-			<Pack>True</Pack>
-			<PackagePath></PackagePath>
-		</None>
-	</ItemGroup>
+  <ItemGroup>
+    <None Include="..\ico\ValheimRcon_black.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
 
-	<ItemGroup>
-		<PackageReference Include="Digitalroot.Valheim.Common.References" Version="0.212.11" />
-		<PackageReference Include="fastJSON" Version="2.4.0.4">
-		  <IncludeAssets></IncludeAssets>
-		</PackageReference>
-	</ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Digitalroot.Valheim.Common.References" Version="0.212.11" />
+    <PackageReference Include="fastJSON" Version="2.4.0.4" />
+  </ItemGroup>
 
 </Project>
