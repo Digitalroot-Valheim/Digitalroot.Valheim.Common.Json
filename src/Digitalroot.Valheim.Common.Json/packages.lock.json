@@ -2,6 +2,12 @@
   "version": 1,
   "dependencies": {
     ".NETFramework,Version=v4.8": {
+      "Digitalroot.References.Unity": {
+        "type": "Direct",
+        "requested": "[2022.3.17, )",
+        "resolved": "2022.3.17",
+        "contentHash": "edxgtveXwn+ACtMyak1McLwoQxKm/GXdh8Drcx2hoFl5VoFeR9wdwEz1yJdVtbamtecZOVghEn3tKKR3ekqOeg=="
+      },
       "Digitalroot.Valheim.Common.References": {
         "type": "Direct",
         "requested": "[0.218.14, )",

@@ -11,6 +11,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Digitalroot.References.Unity" Version="2022.3.17">
+      <PrivateAssets>all</PrivateAssets>
+      <ExcludeAssets></ExcludeAssets>
+      <IncludeAssets>runtime; compile; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+
     <PackageReference Include="Digitalroot.Valheim.Common.References" Version="0.218.14">
       <PrivateAssets>all</PrivateAssets>
       <ExcludeAssets>runtime</ExcludeAssets>
@@ -56,12 +62,5 @@
   </PropertyGroup>
 
   <!-- Add Unity references -->
-  <ItemGroup Label="Unity">
-    <Reference Include="UnityEngine.CoreModule">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>$(UnityPath)\UnityEngine.CoreModule.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-  </ItemGroup>
 
 </Project>
