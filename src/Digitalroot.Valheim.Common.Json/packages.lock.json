@@ -14,21 +14,6 @@
         "resolved": "0.218.14",
         "contentHash": "8dMznAyPkousBWKy1zoq6JvYYLxEatNqoDoB9Ys/KfXSOHWnlLvrYmHwxB8tLb6lvruEQO0nBL/Il123lCIg/A=="
       },
-      "Fody": {
-        "type": "Direct",
-        "requested": "[6.6.0, 6.6.0]",
-        "resolved": "6.6.0",
-        "contentHash": "NWWM8KiR9DGiAi47q9px9oI27xYBiM5KXxSnI4R5mz2/rG8LIcXJfw5zDLLH1xOgzqRNJgc8KTPQPoiQCidYUw=="
-      },
-      "ILMerge.Fody": {
-        "type": "Direct",
-        "requested": "[1.22.0, 1.22.0]",
-        "resolved": "1.22.0",
-        "contentHash": "VCWQM8q7wZwHMgksBsFfbImRUmlgn7E6EKkrnUV86/keqBvMTjhlA7mBYtz6Dace8XsJYufYJvRP25uur5W5WA==",
-        "dependencies": {
-          "Fody": "6.3.0"
-        }
-      },
       "System.Text.Json": {
         "type": "Direct",
         "requested": "[8.0.3, )",
