@@ -1,46 +1,27 @@
 ﻿using JetBrains.Annotations;
-using System.Text.Json;
-using System.Text.Json.Serialization;
+using System;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Digitalroot.Valheim.Common.Json
 {
   [UsedImplicitly]
+  [SuppressMessage("ReSharper", "MemberCanBePrivate.Global")]
   public static class JsonSerializationProvider
   {
-    private static readonly JsonSerializerOptions JsonSerializerOptions = new()
-    {
-      AllowTrailingCommas = false
-      , DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
-      , PropertyNamingPolicy = JsonNamingPolicy.CamelCase
-      , IncludeFields = true
-      , ReferenceHandler = ReferenceHandler.Preserve
-      , NumberHandling = JsonNumberHandling.AllowReadingFromString
-      , Converters =
-      {
-        new JsonStringEnumConverter()
-        , new Vector3JsonConverter()
-        , new QuaternionJsonConverter()
-      }
-    };
+    [Obsolete("Use Deserialize<T>()")]
+    public static T FromJson<T>(string json) => Deserialize<T>(json);
 
-    private static readonly JsonSerializerOptions JsonSerializerOptionsPretty = new(JsonSerializerOptions)
+    public static T Deserialize<T>(string json)
     {
-      WriteIndented = true
-    };
- 
-    public static T FromJson<T>(string json)
-    {
-      return JsonSerializer.Deserialize<T>(json, JsonSerializerOptions); // System.Text.Json
+      return SimpleJson.SimpleJson.DeserializeObject<T>(json, new DigitalrootJsonSerializerStrategy());
     }
 
-    public static string ToJson(object obj, bool pretty = false)
-    {
-      if (pretty)
-      {
-        return JsonSerializer.Serialize(obj, JsonSerializerOptionsPretty); // System.Text.Json
-      }
+    [Obsolete("Use Serialize()")]
+    public static string ToJson(object obj, bool pretty = false) => Serialize(obj);
 
-      return JsonSerializer.Serialize(obj, JsonSerializerOptions); // System.Text.Json
+    public static string Serialize(object obj)
+    {
+      return SimpleJson.SimpleJson.SerializeObject(obj, new DigitalrootJsonSerializerStrategy());
     }
   }
 }

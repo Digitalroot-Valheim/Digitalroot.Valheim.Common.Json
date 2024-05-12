@@ -2,7 +2,6 @@ using Digitalroot.Valheim.Common.Json;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
-using System.Text.Json.Serialization;
 
 namespace UnitTests
 {
@@ -17,7 +16,7 @@ namespace UnitTests
     public void ToJsonTest()
     {
       var obj = new UnitTestJsonClass();
-      var json = JsonSerializationProvider.ToJson(obj);
+      var json = JsonSerializationProvider.Serialize(obj);
       Assert.That(json, Is.Not.Empty);
       Assert.That(json, Is.EqualTo(jsonRef));
     }
@@ -25,7 +24,7 @@ namespace UnitTests
     [Test(Author = "Digitalroot", Description = "Tests JSON to object.", TestOf = typeof(JsonSerializationProvider)), Timeout(5000)]
     public void FromJsonTest()
     {
-      var obj = JsonSerializationProvider.FromJson<UnitTestJsonClass>(jsonRef);
+      var obj = JsonSerializationProvider.Deserialize<UnitTestJsonClass>(jsonRef);
       Assert.That(obj, Is.Not.Null);
       Assert.That(obj.Int, Is.EqualTo(9999));
       Assert.That(obj.String, Is.EqualTo(nameof(String)));
@@ -40,16 +39,12 @@ namespace UnitTests
 
     public class UnitTestJsonClass
     {
-      [JsonInclude]
       public string String = nameof(String);
 
-      [JsonInclude]
       public int Int = 9999;
 
-      [JsonInclude]
       public List<string> StringList = new List<string>();
 
-      [JsonInclude]
       public MyEnum MyEnum;
 
       public UnitTestJsonClass()
