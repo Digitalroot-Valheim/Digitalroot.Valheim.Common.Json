@@ -28,7 +28,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{27D8DF62-68ED-48F7-BA5C-B7145CCBCB2F}"
 	ProjectSection(SolutionItems) = preProject
 		..\.github\workflows\nuget.autoupdate.yml = ..\.github\workflows\nuget.autoupdate.yml
-		..\.github\workflows\nuget.release.yml = ..\.github\workflows\nuget.release.yml
+		..\.github\workflows\release.yml = ..\.github\workflows\release.yml
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTests", "UnitTests\UnitTests.csproj", "{A4EBBE7E-9049-4BE8-B147-79EF57C80959}"
