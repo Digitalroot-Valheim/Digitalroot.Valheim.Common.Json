@@ -1,18 +1,19 @@
 name: Release
 
-concurrency: ci-${{ github.ref }}
+concurrency:
+  # Cancel in-progress jobs or runs for the current workflow when new runs are enqueued
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 on:
   workflow_dispatch:
-    branches:
-      - main # Default release branch
   push:
     branches:
       - main # Default release branch
     paths-ignore:
-      - '.github/**'
-      - 'docs/**'
-      - '**/*.sln'
+        - '.github/**'
+        - 'docs/**'
+        - '**/*.sln'
 
 env:
   DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
