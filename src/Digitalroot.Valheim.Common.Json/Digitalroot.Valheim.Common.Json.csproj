@@ -8,7 +8,7 @@
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <PackageLicenseExpression>AGPL-3.0-or-later</PackageLicenseExpression>
-    <Copyright>Copyright © Digitalroot Technologies 2021 - 2024</Copyright>
+    <Copyright>Copyright © Digitalroot Technologies 2021 - 2026</Copyright>
     <PackageProjectUrl>https://github.com/Digitalroot-Valheim/Digitalroot.Valheim.Common.Json</PackageProjectUrl>
     <RepositoryUrl>https://github.com/Digitalroot-Valheim/Digitalroot.Valheim.Common.Json</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
@@ -42,7 +42,7 @@
 
   <ItemGroup>
     <PackageReference Include="Digitalroot.References.Unity" Version="6000.0.75" />
-    <PackageReference Include="Digitalroot.Valheim.Common.References" Version="1.0.7">
+    <PackageReference Include="Digitalroot.Valheim.Common.References" Version="1.0.12">
       <PrivateAssets>all</PrivateAssets>
       <ExcludeAssets>runtime</ExcludeAssets>
       <IncludeAssets>compile; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
